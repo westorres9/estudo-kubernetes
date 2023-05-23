@@ -5,12 +5,12 @@ metadata:
 spec:
   containers:
   - name: liveness-container
-    image: busibox
+    image: busybox
     args:
     - /bin/sh
     - -c
-    - touch /tmp/healthy; sleep 30; rm -g /tmp/healthy; sleep 600
-  
+    - touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600
+    
     livenessProbe:
       exec:
         command:
@@ -19,3 +19,4 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 5
       failureThreshold: 3
+      
