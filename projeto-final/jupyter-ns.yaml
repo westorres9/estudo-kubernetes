@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jupyter
+  annotations:
+    desc: "Namespace fpr Jupyter Notebook Application"
+    proj: "Final Project k8S course"
+    owner: "Wester Torres"
+    phone: "+5534991761899"
+  
