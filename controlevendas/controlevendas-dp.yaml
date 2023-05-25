@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controlevendas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: controlevendas
+  template:
+    metadata:
+      labels:
+        app: controlevendas
+    spec:
+      containers:
+      - env:
+        - name: APP_PROFILE
+          value: prod
+        - name: DB_URL
+          value: jdbc:postgresql://postgresql:5432/controlevendas
+        - name: DB_USERNAME
+          value: postgres
+        - name: DB_PASSWORD
+          value: "1234567"
+        image: westorres9/controlevendasdocker:latest
+        name: controlevendas
+        ports:
+        - containerPort: 8080
